@@ -1,5 +1,5 @@
 export const getCities = async (search) => {
-  console.log(search)
+  console.log(search);
   const res = await fetch(
     `https://search.reservamos.mx/api/v2/places?q=${search}`
   );
