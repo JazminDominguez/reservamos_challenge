@@ -11,9 +11,7 @@ export default function Home() {
   const [forecast, setForecast] = useState();
   const [condensedForecast, setCondensedForecast] = useState([]);
 
-
   const currentDate = lightFormat(new Date(2012, 1, 29), 'yyyy-MM-dd')
-  console.log("current date", currentDate)
   
 
   function getEveryNth(arr, nth) {
@@ -30,26 +28,22 @@ export default function Home() {
   const handleChange = (event) => setSearch(event.target.value);
   
   useEffect(() => {
+    // debounce to avoid on-type api calls
     const debounce = setTimeout(() => {
       // declare the async data fetching function
       const fetchData = async () => {
         // get the data from the api
         const cities = await getCities(search);
-          console.log("data", cities)
 
           const filteredCitiesType = cities.data.filter( t => t.result_type === "city")
-          console.log("format", filteredCitiesType)
          
           const weather = await getForecast(filteredCitiesType[0].lat, filteredCitiesType[0].long)
-          console.log("weather", weather)
 
           let fiveElementList = getEveryNth(weather?.list, 8)
 
           if(weather?.success){
             setForecast(weather)
             setCondensedForecast(fiveElementList)
-            console.log("get nth", fiveElementList)
-           // console.log("condensed forecast", condensedForecast)
           }
       }
 
@@ -61,12 +55,6 @@ export default function Home() {
 
     return () => clearTimeout(debounce)
   }, [search]);
-
-  useEffect(() => {
-   console.log("condensed forecast", condensedForecast)
-  }, [condensedForecast])
-  
-
  
   return (
     <Flex flexDirection={["column", "column", "row"]} padding={["1rem","2rem", "2rem", "3rem"]} minHeight="100vh" minWidth="100vw" backgroundColor="#eaeaea">
