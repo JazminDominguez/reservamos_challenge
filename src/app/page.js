@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { getCities } from "@/services/reservamos";
 import { getForecast } from "@/services/openweather";
 import ForeCastItem from "@/components/foreCastItem";
-import { lightFormat, getDay } from "date-fns";
+import { lightFormat } from "date-fns";
 
 export default function Home() {
   const [search, setSearch] = useState("");
