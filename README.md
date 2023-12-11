@@ -1,4 +1,7 @@
 # Reservamos challenge
+Test it here!
+
+https://reservamos-challenge-two.vercel.app/
 
 This project is set using:\
 [Next.js](https://nextjs.org/) as react framework\
@@ -30,6 +33,8 @@ The api calls happen inside the useEffect hook with a debounce of 500ms to avoid
 ## Notes
 
 For this project a simple  and responsive layout was set.
+![picture_1](https://github.com/JazminDominguez/reservamos_challenge/assets/46532943/78212a9c-4369-4034-b107-78949526ec3f)
+
 
 ## License
 
