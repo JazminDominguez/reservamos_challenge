@@ -14,7 +14,8 @@ Clone this project on your local machine an install it.
 ```bash
 npm install
 ```
-On the root of your project add a file named .env.local.
+On the root of your project add a file named .env.local
+
 Inside .env.local add the needed environment keys
 ```bash
 NEXT_PUBLIC_WEATHER_KEY=OpenWeather_api_key
